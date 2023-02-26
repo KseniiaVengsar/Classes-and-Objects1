@@ -12,13 +12,15 @@ private:
     //поля
     int pole;
 
+
     //методы
 public:
     int pluse_1();
     int minus_1();
     int present_value();
-    //void int_val_1();
-    void init();
+
+
+    //////////////////////////////////////////////////////////////////////////////////////
     //возможность создания экземпляра класса с начальным значением по умолчанию (1)
     //конструктор без аргументов
     Counter() {
@@ -27,19 +29,16 @@ public:
     //возможность создания экземпляра класса с инициализирующим начальным значением
     //конструктор с аргументами
     Counter(int pole) {
-        Counter::setALL(pole);
+        
     }
-    void setALL(int pole) {
-
-        std::cin >> pole;
-    }
-
 };
+//////////////////////////////////////////////////////////////////////////////////
 //описываем методы вне class:
 //возможность увеличить своё значение на 1
 int Counter::pluse_1() {
     pole++;
     return pole++;
+
 }
 //возможность уменьшить своё значение на 1
 int Counter::minus_1() {
@@ -48,63 +47,87 @@ int Counter::minus_1() {
 }
 //возможность посмотреть своё текущее значение
 int Counter::present_value() {
-    std::cout << pole << std::endl;
+    
     return pole;
 }
-/*//возможность создания экземпляра класса с начальным значением по умолчанию (1)
-void Counter::int_val_1(){
-pole = 1;
-}*/
-/*//возможность создания экземпляра класса с инициализирующим начальным значением
-void Counter::init(){
-  int pole;
-  std::cin>>pole;
-}*/
+
 
 int main() {
     setlocale(LC_ALL, "RU");
-    //создание объекта
     Counter number;
-    Counter();
-
     //присваивание значений полям
     std::cout << "Вы хотите указать начальное значение счётчика?" << "\n" << "Введите yes или no:" << std::endl;
     std::string yes_no;
     std::cin >> yes_no;
     if (yes_no == "yes") {
-
         std::cout << "Введите начальное значение счётчика:" << std::endl;
-        Counter(pole);
-
-
+        int m;
+        std::cin >> m;
+        class Counter Counter(m); //создание объекта
         std::cout << "Введите команду ('+', '-', '=' или 'x'):";
-        std::string command_1;
-        std::cin >> command_1;
+        std::string command_2;
+        std::cin >> command_2;
+        while (command_2 != "x")
+        {
+            std::cout << "Введите команду ('+', '-', '=' или 'x'):";
+            std::string command_2;
+            std::cin >> command_2;
+            if (command_2 == "+")
+            {
+                std::cout << number.pluse_1() << std::endl;
+            }
+            else if (command_2 == "-")
+            {
+                std::cout << number.minus_1() << std::endl;;
+            }
+            else if (command_2 == "=")
+            {
+                std::cout << number.present_value() << std::endl;;
+            }
 
-        if (command_1 == "+")
-        {
-            std::cout << number.pluse_1() << std::endl;
+            else if (command_2 == "x") {
+                std::cout << "До свидания!" << std::endl;
+                break;
+            }
+
         }
-        else if (command_1 == "-")
-        {
-            std::cout << number.minus_1() << std::endl;;
-        }
-        else if (command_1 == "=")
-        {
-            std::cout << number.present_value() << std::endl;;
-        }
-        else if (command_1 == "x")
-        {
-            std::cout << "До свидания!" << std::endl;
-        }
-        else {
-            std::cout << "До свидания!" << std::endl;
+    }
+
+    //////////////////////////////////////////////////////////////////////////////    
+
+
+    if (yes_no == "no") {
+        class Counter Counter();
+        std::cout << "Введите команду ('+', '-', '=' или 'x'):";
+        std::string command_5;
+        std::cin >> command_5;
+        while (command_5 != "x") {
+            std::cout << "Введите команду ('+', '-', '=' или 'x'):";
+            std::string command_5;
+            std::cin >> command_5;
+            if (command_5 == "+")
+            {
+                std::cout << number.pluse_1() << std::endl;
+            }
+            else if (command_5 == "-")
+            {
+                std::cout << number.minus_1() << std::endl;;
+            }
+            else if (command_5 == "=")
+            {
+                std::cout << number.present_value() << std::endl;;
+            }
+            else if (command_5 == "x") {
+                std::cout << "До свидания!" << std::endl;
+                break;
+            }
+
         }
     }
 
 
-    return 0;
 
+    return 0;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
