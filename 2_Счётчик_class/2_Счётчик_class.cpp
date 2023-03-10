@@ -15,8 +15,8 @@ private:
 
     //методы
 public:
-    int pluse_1();
-    int minus_1();
+    void pluse_1();
+    void minus_1();
     int present_value();
 
 
@@ -35,15 +35,12 @@ public:
 //////////////////////////////////////////////////////////////////////////////////
 //описываем методы вне class:
 //возможность увеличить своё значение на 1
-int Counter::pluse_1() {
-    pole++;
-    return pole++;
-
+void Counter::pluse_1() {
+    pole++;   
 }
 //возможность уменьшить своё значение на 1
-int Counter::minus_1() {
-    pole--;
-    return pole--;
+void Counter::minus_1() {
+    pole--;   
 }
 //возможность посмотреть своё текущее значение
 int Counter::present_value() {
