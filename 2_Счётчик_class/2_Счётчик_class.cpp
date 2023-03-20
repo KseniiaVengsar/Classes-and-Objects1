@@ -1,4 +1,4 @@
-﻿// 2_Счётчик_class.cpp : This file contains the 'main' function. Program execution begins and ends there.
+// 2_Счётчик_class.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
 #include <iostream>
@@ -11,40 +11,30 @@ class Counter {
 private:
     //поля
     int pole;
-
-
-    //методы
 public:
     void pluse_1();
     void minus_1();
+
     int present_value();
 
-
-    //////////////////////////////////////////////////////////////////////////////////////
-    //возможность создания экземпляра класса с начальным значением по умолчанию (1)
-    //конструктор без аргументов
     Counter() {
         pole = 1;
     }
-    //возможность создания экземпляра класса с инициализирующим начальным значением
-    //конструктор с аргументами
-    Counter(int pole) {
-        
+    Counter(int pole_) {
+        pole = pole_;
     }
 };
-//////////////////////////////////////////////////////////////////////////////////
-//описываем методы вне class:
-//возможность увеличить своё значение на 1
+
 void Counter::pluse_1() {
-    pole++;   
+    pole++;
 }
 //возможность уменьшить своё значение на 1
 void Counter::minus_1() {
-    pole--;   
+    pole--;
 }
 //возможность посмотреть своё текущее значение
 int Counter::present_value() {
-    
+
     return pole;
 }
 
@@ -52,6 +42,7 @@ int Counter::present_value() {
 int main() {
     setlocale(LC_ALL, "RU");
     Counter number;
+    Counter number2;
     //присваивание значений полям
     std::cout << "Вы хотите указать начальное значение счётчика?" << "\n" << "Введите yes или no:" << std::endl;
     std::string yes_no;
@@ -60,7 +51,7 @@ int main() {
         std::cout << "Введите начальное значение счётчика:" << std::endl;
         int m;
         std::cin >> m;
-        class Counter Counter(m); //создание объекта
+        number = Counter(m); //создание объекта
         std::cout << "Введите команду ('+', '-', '=' или 'x'):";
         std::string command_2;
         std::cin >> command_2;
@@ -71,15 +62,15 @@ int main() {
             std::cin >> command_2;
             if (command_2 == "+")
             {
-                std::cout << number.pluse_1() << std::endl;
+                number.pluse_1();
             }
             else if (command_2 == "-")
             {
-                std::cout << number.minus_1() << std::endl;;
+                number.minus_1();
             }
             else if (command_2 == "=")
             {
-                std::cout << number.present_value() << std::endl;;
+                std::cout << number.present_value() << std::endl;
             }
 
             else if (command_2 == "x") {
@@ -92,9 +83,8 @@ int main() {
 
     //////////////////////////////////////////////////////////////////////////////    
 
-
     if (yes_no == "no") {
-        class Counter Counter();
+        number2 = Counter();
         std::cout << "Введите команду ('+', '-', '=' или 'x'):";
         std::string command_5;
         std::cin >> command_5;
@@ -104,15 +94,15 @@ int main() {
             std::cin >> command_5;
             if (command_5 == "+")
             {
-                std::cout << number.pluse_1() << std::endl;
+                number.pluse_1();
             }
             else if (command_5 == "-")
             {
-                std::cout << number.minus_1() << std::endl;;
+                number.minus_1();
             }
             else if (command_5 == "=")
             {
-                std::cout << number.present_value() << std::endl;;
+                std::cout << number.present_value() << std::endl;
             }
             else if (command_5 == "x") {
                 std::cout << "До свидания!" << std::endl;
@@ -123,9 +113,9 @@ int main() {
     }
 
 
-
     return 0;
 }
+
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu
